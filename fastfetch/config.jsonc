@@ -1,0 +1,113 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "display": {
+    "key": {
+      "width": 10
+    },
+    "separator": ""
+  },
+  "logo": {
+    "type": "auto",
+    "source": "~/.config/fastfetch/taiyo.txt",
+    "color": {
+      "1": "#4488ff",
+      "2": "#66a0ff",
+      "3": "#88b8ff",
+      "4": "#aacdff",
+      "5": "#cce3ff"
+    },
+    "padding": {
+      "top": 1,
+      "left": 1
+    }
+  },
+  "modules": [
+    "break",
+    {
+      "type": "title",
+      "keyColor": "#4488ff"
+    },
+    {
+      "type": "separator",
+      "keyColor": "#5594ff"
+    },
+    {
+      "type": "os",
+      "key": "󰣇 OS",
+      "keyColor": "#4488ff",
+      "format": "{name} {version-id}"
+    },
+    {
+      "type": "kernel",
+      "key": "󰌽 KER",
+      "keyColor": "#5594ff",
+      "format": "{release} {machine}"
+    },
+    {
+      "type": "host",
+      "key": "󰍹 HOST",
+      "keyColor": "#66a0ff"
+    },
+    {
+      "type": "uptime",
+      "key": "󰥔 UP",
+      "keyColor": "#77acff"
+    },
+    {
+      "type": "packages",
+      "key": "󰏗 PKG",
+      "keyColor": "#88b8ff",
+      "format": "{all}"
+    },
+    {
+      "type": "shell",
+      "key": "󰞷 SH",
+      "keyColor": "#99c4ff",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "terminal",
+      "key": "󰆍 TERM",
+      "keyColor": "#aacdff",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "cpu",
+      "key": "󰻠 CPU",
+      "keyColor": "#bbd9ff",
+      "format": "{name} ({cores})"
+    },
+    {
+      "type": "memory",
+      "key": "󰍛 RAM",
+      "keyColor": "#ddeaff",
+      "format": "{used} / {total} ({percentage})"
+    },
+    {
+      "type": "swap",
+      "key": "󰓡 SWP",
+      "keyColor": "#eef5ff",
+      "format": "{used} / {total} ({percentage})"
+    },
+    {
+      "type": "disk",
+      "key": "󰋊 SSD",
+      "keyColor": "#4488ff",
+      "format": "{size-used} / {size-total} ({size-percentage})"
+    },
+    {
+      "type": "battery",
+      "key": "󰁹 BAT",
+      "keyColor": "#5594ff",
+      "format": "{capacity}%"
+    },
+    {
+      "type": "locale",
+      "key": "󰆌 LANG",
+      "keyColor": "#66a0ff"
+    },
+    {
+      "type": "break"
+    }
+  ]
+}

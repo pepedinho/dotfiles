@@ -1,0 +1,10 @@
+solana/id.json
+pulse/cookie
+go/telemetry/
+
+shiki/shiki.log
+htop/htop_history
+lazy/
+
+*_bck/
+*.bak

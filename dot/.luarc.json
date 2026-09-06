@@ -1,0 +1,7 @@
+{
+    "workspace": {
+        "library": [".meta", "/home/pepe/code/zig/dot/runtime/lua"],
+        "checkThirdParty": false
+    },
+    "diagnostics": { "globals": ["dot"] }
+}

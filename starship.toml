@@ -1,0 +1,117 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# La chaîne principale ne contient QUE les variables, sans texte brut au milieu
+format = """$username$hostname$directory$git_branch$git_status$package$rust$python$nodejs$golang$c$cpp$zig$lua$status$character"""
+
+scan_timeout = 30
+
+# Désactive le saut de ligne au lancement du terminal
+add_newline = false
+
+[directory]
+style = "bold cyan"
+truncation_length = 10
+truncate_to_repo = true
+# Le dossier s'affiche toujours en premier
+format = "[$path]($style)"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+# Le " on " est intégré ICI. Il n'apparaît que si tu es dans un dépôt Git.
+format = " on [$symbol$branch]($style)"
+
+[git_status]
+style = "bold #FF5585"
+# Ton statut compact entre crochets [!⇡] collé juste après la branche
+format = "[\\[$ahead_behind$all_status\\]]($style)"
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+[package]
+disabled = false
+style = "bold #FF9E3B"
+# Le " is " est intégré ICI. Il n'apparaît que si une version de projet (Cargo, package.json...) est détectée.
+format = " is 📦 [$version]($style)"
+
+# --- LANGAGES (Le " via " n'apparaît que si le langage est détecté) ---
+
+[rust]
+symbol = "🦀 "
+style = "bold #FF5585"
+format = " via [$symbol$version]($style)"
+
+[python]
+symbol = " "
+style = "bold #FF5585"
+format = " via [$symbol$version]($style)"
+
+[nodejs]
+symbol = " "
+style = "bold #FF5585"
+format = " via [$symbol$version]($style)"
+
+[golang]
+symbol = " "
+style = "bold #FF5585"
+format = " via [$symbol$version]($style)"
+
+[c]
+symbol = " "
+style = "bold #FF5585"
+detect_extensions = ["c", "h"]
+detect_files = ["CMakeLists.txt", "meson.build", "compile_commands.json"]
+format = " via [$symbol$version]($style)"
+
+
+[cpp]
+disabled = false
+symbol = " "
+style = "bold #FF5585"
+detect_extensions = ["cpp", "hpp", "cc", "cxx", "hxx"]
+detect_files = ["CMakeLists.txt", "meson.build", "justfile"]
+format = " via [$symbol$version]($style)"
+
+[zig]
+symbol = " "
+style = "bold #FF9E3B"
+format = " via [$symbol$version]($style)"
+
+[lua]
+symbol = " "
+style = "bold #FF5585"
+detect_extensions = ["lua"]
+format = " via [$symbol$version]($style)"
+
+
+[username]
+style_user = "bold blue"
+style_root = "bold red"
+format = "[$user]($style) "
+disabled = false
+show_always = false # S'affiche UNIQUEMENT si tu es root ou en SSH
+
+[hostname]
+ssh_only = true # S'affiche uniquement en session SSH
+style = "bold dimmed purple"
+format = "on [$hostname]($style) "
+disabled = false
+
+[status]
+disabled = false
+style = "bold red"
+format = "\n[\\[$int\\]]($style) "
+map_symbol = true
+pipestatus = true
+
+[character]
+success_symbol = "\n[\\$](bold green) "
+error_symbol = "[\\$](bold red) "
