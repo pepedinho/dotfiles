@@ -1,0 +1,31 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": ["custom/menu", "niri/workspaces", "niri/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery"],
+
+    "clock": {
+        "format": "<b>{:%H:%M  |  %d-%m}</b>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "niri/workspaces": {
+        "format": "{index}"
+    },
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰖁 Mute"
+    },
+    "battery": {
+        "format": "󰁹 {capacity}%"
+    },
+    "memory": {
+        "format": "󰍛 {percentage}%"
+    },
+    "cpu": {
+        "format": "󰻠 {usage}%"
+    }
+}
