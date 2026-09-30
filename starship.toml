@@ -43,7 +43,7 @@ style = "bold #FF9E3B"
 format = " is 📦 [$version]($style)"
 
 # --- LANGAGES (Le " via " n'apparaît que si le langage est détecté) ---
-
+ 
 [rust]
 symbol = "🦀 "
 style = "bold #FF5585"

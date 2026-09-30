@@ -1,31 +1,237 @@
+/* Waybar Style - Roomier Sharp Layout */
+@import "colors.css";
+
 * {
-    border: none;
-    font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
-    font-size: 13px;
-    font-weight: bold;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  border-radius: 0px;
+  min-height: 0;
 }
 
 window#waybar {
-    background-color: transparent;
+  background-color: transparent;
+  border-bottom: 0;
+  color: @text;
+  transition: background-color 0.3s ease;
 }
 
-/* Style commun pour chaque bloc (îlot sombre) */
-#custom-menu, #workspaces, #window, #clock, #cpu, #memory, #backlight, #pulseaudio, #battery {
-    background: rgba(20, 20, 20, 0.85);
-    color: #e0e0e0;
-    padding: 4px 12px;
-    margin: 0px 4px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+window#waybar.hidden {
+  opacity: 0.2;
 }
 
-/* Onglets de workspaces */
+/* Islands with strict square ultra-thin borders (1px) */
+.modules-left {
+  margin: 4px 0 0 0;
+  padding: 0px 12px;
+  background-color: alpha(@background, 0.55);
+  border: 1px solid alpha(@borders, 0.55);
+  border-radius: 0px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.modules-center {
+  margin: 4px 0 0 0;
+  padding: 0px 8px;
+  background-color: alpha(@background, 0.55);
+  border: 1px solid alpha(@borders, 0.55);
+  border-radius: 0px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.modules-right {
+  margin: 4px 0 0 0;
+  padding: 0px 4px;
+  background-color: alpha(@background, 0.55);
+  border: 1px solid alpha(@borders, 0.55);
+  border-radius: 0px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+button {
+  border: none;
+  border-radius: 0px;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Interactive module states */
+#custom-distro,
+#custom-themeswitcher,
+#workspaces button,
+#mpris,
+#clock,
+#battery,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio,
+#custom-power {
+  padding: 1px 5px;
+  margin: 1px 1px;
+  border-radius: 0px;
+  transition: all 0.15s ease-in-out;
+}
+
+#custom-distro {
+  color: @focused;
+  font-size: 16px;
+  padding: 0 11px;
+  margin-right: 6px;
+}
+
+#custom-distro:hover {
+  background-color: @hover-background;
+  color: #ffffff;
+}
+
+#custom-distro:active {
+  background-color: @active-background;
+}
+
+#custom-themeswitcher {
+  color: @color1;
+  font-size: 15px;
+  padding: 0 11px;
+  margin-right: 6px;
+}
+
+#custom-themeswitcher:hover {
+  background-color: @hover-background;
+  color: @focused2;
+}
+
+#custom-themeswitcher:active {
+  background-color: @active-background;
+}
+
+/* Workspaces */
 #workspaces button {
-    padding: 0 6px;
-    color: #888888;
+  min-width: 0;
+  padding: 0 9px;
+  margin: 1px 2px;
+  background-color: transparent;
+  color: @subtext;
+  border-radius: 0px;
+  border-bottom: 1px solid transparent;
 }
-#workspaces button.active {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 4px;
+
+#workspaces button:hover {
+  background-color: @hover-background;
+  color: @focused2;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  color: #ffffff;
+  background-color: @second-background;
+  border-bottom: 1px solid @focused;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  background-color: @urgent;
+  color: #ffffff;
+}
+
+/* Media Player */
+#mpris {
+  color: @text;
+  border-left: 1px solid alpha(@borders, 0.4);
+  padding: 0 8px 0 12px;
+  margin-left: 6px;
+}
+
+#mpris:hover {
+  background-color: @hover-background;
+  color: @focused2;
+}
+
+#mpris:active {
+  background-color: @active-background;
+}
+
+#mpris.playing {
+  color: @color3;
+}
+
+/* Center Clock */
+#clock {
+  color: @text;
+  font-weight: 600;
+}
+
+#clock:hover {
+  background-color: @hover-background;
+  color: @focused;
+}
+
+#clock:active {
+  background-color: @active-background;
+}
+
+/* Right Island Modules Interactive Styling */
+#cpu:hover,
+#memory:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-power:hover {
+  background-color: @hover-background;
+  color: @focused;
+}
+
+#cpu:active,
+#memory:active,
+#backlight:active,
+#pulseaudio:active,
+#battery:active,
+#custom-power:active {
+  background-color: @active-background;
+  color: #ffffff;
+}
+
+#pulseaudio.muted {
+  color: @urgent;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @color3;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @urgent;
+  color: #ffffff;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+#custom-power {
+  color: @urgent;
+  font-size: 13px;
+  padding: 0 5px;
+}
+
+#custom-power:hover {
+  background-color: rgba(248, 113, 113, 0.2);
+  color: #ff9999;
+}
+
+/* Tooltips */
+tooltip {
+  background: alpha(@background, 0.82);
+  border: 1px solid alpha(@borders, 0.72);
+  border-radius: 0px;
+  color: @text;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+tooltip label {
+  color: @text;
+}
+
+@keyframes blink {
+  to {
+    background-color: @second-background;
+    color: @text;
+  }
 }

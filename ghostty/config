@@ -53,7 +53,7 @@ shell-integration-features = no-cursor
 
 
 #Cursor
-cursor-color = #836fff
+#cursor-color = #836fff
 cursor-style = block
 cursor-style-blink = true
 

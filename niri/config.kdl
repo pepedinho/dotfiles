@@ -1,3 +1,4 @@
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "GDK_BACKEND=wayland"
 include "./cfg/animation.kdl"
 include "./cfg/autostart.kdl"
 include "./cfg/keybinds.kdl"
